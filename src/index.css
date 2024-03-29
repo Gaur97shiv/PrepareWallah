@@ -1,0 +1,8 @@
+body {
+    background-image: url(../public/Images/background1.jpg);
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
