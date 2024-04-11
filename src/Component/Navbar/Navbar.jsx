@@ -7,28 +7,30 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of Navigate
-
+import { useNavigate } from 'react-router-dom'; 
 const electionItems = ['Frontend-Developer', 'Backend-Developer', 'Devops', 'Data Scientist','Gen AI'];
-
 function Navbar(props) {
-  const navigate = useNavigate(); // Use useNavigate hook here
+  const navigate = useNavigate(); 
   const [electionAnchorEl, setElectionAnchorEl] = useState(null);
-
   const handleElectionClick = (event) => {
     setElectionAnchorEl(event.currentTarget);
   };
-
   const handleElectionClose = () => {
     setElectionAnchorEl(null);
   };
-
   const handleClick = () => {
     navigate('/Signup'); 
   };
   const handleClick1 =() =>{
     navigate('/');
   }
+  const handleSignOut=()=>{
+    navigate("/SignOut")
+  }
+  const handlePractice=()=>{
+          navigate("/Practice")
+  }
+  
   
 
   return (
@@ -42,12 +44,15 @@ function Navbar(props) {
             onClick={handleClick1}
            
           >
-            Prepare Wallah
+            P
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Button sx={{ color: '#fff' }} onClick={handlePractice}>Practice</Button>
             <Button sx={{ color: '#fff' }} > News</Button>
             <Button sx={{ color: '#fff' }}>Jobs </Button>
-            <Button sx={{ color: '#fff' }} onClick={handleClick}> Log-In</Button>
+            <Button sx={{ color: '#fff' }} onClick={handleClick}> Sign-In</Button>
+            <Button sx={{ backgroundColor:"red", color:"white" }} onClick={handleSignOut}>Sign-Out </Button>
+            
             <Button
               onClick={handleElectionClick}
               sx={{ color: '#fff' }}
