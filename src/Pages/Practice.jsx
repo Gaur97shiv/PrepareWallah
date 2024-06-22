@@ -1,7 +1,6 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
+import BackButton from '../Component/BackButton/BackButton';
 export default function Practice() {
   const [selectedDomain, setSelectedDomain] = useState('Backend');
   const [questionType, setQuestionType] = useState('Mcqs');
@@ -22,7 +21,15 @@ export default function Practice() {
 
   return (
     <>
-      <p className='flex justify-center mt-7 mx-6 bg-sky-100 rounded-lg shadow-md'>Welcome to the practice with GEN AI</p>
+      <div className="flex  justify-between w-full px-5 bg-sky-600 ">
+  <div className="my-10">
+    <BackButton />
+  </div>
+  <div className="text-4xl mt-10 flex justify-center w-full absolute left-1/2 transform -translate-x-1/2">
+    Practice with Gen-AI
+  </div>
+</div>
+      
       <div className=" my-20 flex items-center justify-center">
         <div className="bg-white p-8 rounded-lg shadow-md">
           <div className="flex mb-4">

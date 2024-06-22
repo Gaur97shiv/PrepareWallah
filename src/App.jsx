@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux'
 import { addUser, removeUser } from './Store/userSlice';
 import SignOut from './Pages/Signup/SignOut';
 import Practice from './Pages/Practice';
+import News from "./Pages/News/News";
+import Frontend from './Pages/Roadmaps/Frontend'
 const App = () => {
   const dispatch=useDispatch();
 useEffect(()=>{
@@ -15,7 +17,6 @@ useEffect(()=>{
     if (user) {
       const {email,uid,displayName}=user;
     dispatch(addUser({uid:uid,email:email,displayName:displayName}))
-    
     } 
     else {
      dispatch(removeUser());  
@@ -23,19 +24,18 @@ useEffect(()=>{
   });
   return ()=> unsubscribe();
 }
-
 ,[])
-
-
   return (
     <div>
         <Routes>
+          <Route path='/News' element={<News/>}></Route>
           <Route path='/Practice' element={<Practice/>}></Route>
           <Route path="/" element={<Home />} />
           <Route path="Signup" element={<Signup />} />
           <Route path='SignOut' element={<SignOut/>}></Route>
-        </Routes>
-    
+          <Route path='/frontend' element={<Frontend/>}></Route>
+       </Routes>
+  
     </div>
   );
 }

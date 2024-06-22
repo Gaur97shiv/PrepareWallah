@@ -1,8 +1,16 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-image: url(../public/Images/background1.jpg);
-    background-size: 1920px 1080px;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

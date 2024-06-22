@@ -7,16 +7,18 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 const electionItems = ['Frontend-Developer', 'Backend-Developer', 'Devops', 'Data Scientist','Gen AI'];
 function Navbar(props) {
+  
   const navigate = useNavigate(); 
   const [electionAnchorEl, setElectionAnchorEl] = useState(null);
   const handleElectionClick = (event) => {
     setElectionAnchorEl(event.currentTarget);
   };
-  const handleElectionClose = () => {
+  const handleElectionClose = ( ) => {
     setElectionAnchorEl(null);
+    
   };
   const handleClick = () => {
     navigate('/Signup'); 
@@ -30,9 +32,9 @@ function Navbar(props) {
   const handlePractice=()=>{
           navigate("/Practice")
   }
-  
-  
-
+  const handleNews=()=>{
+    navigate("/News")
+  }
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav">
@@ -42,22 +44,20 @@ function Navbar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' },"&:hover": { color: "black" },cursor: "pointer"}}
             onClick={handleClick1}
-           
           >
-            P
+            PrepareWell
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             <Button sx={{ color: '#fff' }} onClick={handlePractice}>Practice</Button>
-            <Button sx={{ color: '#fff' }} > News</Button>
+            <Button sx={{ color: '#fff' }} onClick={handleNews}> News</Button>
             <Button sx={{ color: '#fff' }}>Jobs </Button>
             <Button sx={{ color: '#fff' }} onClick={handleClick}> Sign-In</Button>
             <Button sx={{ backgroundColor:"red", color:"white" }} onClick={handleSignOut}>Sign-Out </Button>
-            
             <Button
               onClick={handleElectionClick}
               sx={{ color: '#fff' }}
             >
-              Tech-Roles
+              Roadmaps
             </Button>
             <Menu
               anchorEl={electionAnchorEl}

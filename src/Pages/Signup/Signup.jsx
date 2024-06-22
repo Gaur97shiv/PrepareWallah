@@ -3,8 +3,9 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { useFormik } from 'formik';
 import { auth } from '../../Validations/firebase';
 import signupSchema from '../../schemas/signupSchema';
-import TextInput from '../../Component/Navbar/TextInput/TextInput';
+import TextInput from "../../Component/TextInput/TextInput"
 import { useNavigate } from 'react-router-dom';
+import BackButton from '../../Component/BackButton/BackButton';
 export const Signup = () => {
   const dispatch=useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(false);
@@ -43,7 +44,7 @@ export const Signup = () => {
   const formik = useFormik({
     initialValues: {
       fullName: '',
-      gmail: '', // Added gmail here
+      gmail: '',
       password: ''
     },
     validationSchema: signupSchema,
@@ -52,7 +53,16 @@ export const Signup = () => {
   const { values, touched, handleBlur, handleChange, errors, isSubmitting } = formik;
   
   return (
-    <form className='w-1/2 my-56 mx-auto bg-transparent p-12 rounded-lg border-2 border-x-slate-500' onSubmit={handleSubmit}>
+    <div>
+      <div className="flex  justify-between w-full px-5 bg-sky-200  ">
+  <div className="my-10">
+    <BackButton />
+  </div>
+  <div className="text-4xl mt-10 flex justify-center w-full absolute left-1/2 transform -translate-x-1/2">
+    Welcome to Prepare-Well
+  </div>
+</div>
+<form className='w-1/2 my-56 mx-auto bg-transparent p-12 rounded-lg border-2 border-x-slate-500' onSubmit={handleSubmit}>
       <h1 className='font-bold text-xl mb-7'>{isSignInForm ? 'Sign-up' : 'Sign-in'}</h1>
       {isSignInForm && (
         <TextInput
@@ -97,6 +107,8 @@ export const Signup = () => {
         {isSignInForm ? 'Already registered? Sign in now' : ' New to KYC? Sign up now'}
       </p>
     </form>
+    </div>
+    
   );
 };
 
